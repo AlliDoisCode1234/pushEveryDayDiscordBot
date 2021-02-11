@@ -40,6 +40,7 @@ client.on("message", (message) => {
   }
 
   else if(command === "pushed"){
+      // create count but restart count if user misses a day
     message.reply("Hooray!!! I Believe In You!!!");
   }
 
@@ -50,7 +51,7 @@ client.on("message", (message) => {
   // 1.) One morning and one evening Message generated to remind people to push
   // 2.) Pushed command and/or emoji reaction keeps count of consecutive days pushed
   // -> but if you miss a day, count restarts
-  // 3.) 
+  // 3.) User daily streaks
 
 });
 
