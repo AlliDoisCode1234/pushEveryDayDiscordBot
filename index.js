@@ -2,17 +2,23 @@ const Discord = require("discord.js");
 const config = require("./config.json");
 
 const client = new Discord.Client();
+// const messageReaction = new Discord.MessageReaction(clientdatamessage);
+
+
+client.on('ready', () => {
+    console.log('I am ready!');
+  });
 
 const prefix = "!";
 
-client.on("message", function(message) {
+client.on("message", (message) => {
   if (message.author.bot) return;
   if (!message.content.startsWith(prefix)) return;
 
   const commandBody = message.content.slice(prefix.length);
   const args = commandBody.split(' ');
   const command = args.shift().toLowerCase();
-
+ 
 
    // All Commands - Long If Conditional
    //
@@ -30,12 +36,21 @@ client.on("message", function(message) {
   }
 
   else if(command === "push"){
-      message.reply(`Friendly Reminder to push code to your github today!`)
+    message.reply("Friendly Reminder to push code to your github today!");
   }
 
   else if(command === "pushed"){
-      message.reply(`Hooray ${user}!!! I Believe In You!!! `)
+    message.reply("Hooray!!! I Believe In You!!!");
   }
+
+
+  //List of Commands to Make:
+  //
+
+  // 1.) One morning and one evening Message generated to remind people to push
+  // 2.) Pushed command and/or emoji reaction keeps count of consecutive days pushed
+  // -> but if you miss a day, count restarts
+  // 3.) 
 
 });
 
